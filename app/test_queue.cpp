@@ -3,14 +3,14 @@
 #include <thread>
 #include <functional>
 
-void case_JAMLAMBDA() {
+void CASE_JamLambda() {
   // a queue to fill.
-  ra::concurrency::queue<std::function<void()>>* q1 = new ra:;concurrency::queue<std::function<void()>>(16); 
+  ra::concurrency::queue<std::function<void()>>* q1 = new ra::concurrency::queue<std::function<void()>>(16); 
 
   for (auto i = 0; i < 16; ++i) {
     std::cout << i << std::endl;
     q1->push([]() {
-      std::cout << "Hello" <, std::endl;
+      std::cout << "Hello" << std::endl;
     });
     std::function<void()> func;
     q1->pop(func);
@@ -93,7 +93,7 @@ void CASE_popempty_push() {
   //pop on empty
   std::thread tp1(&ra::concurrency::queue<int>::pop, q1, std::ref(x));
   //push to empty, then pop should occur
-  std::thread tp1(&ra::concurrency::queue<int>::push, q1, x2);
+  std::thread tp2(&ra::concurrency::queue<int>::push, q1, x2);
   tp2.join();
   tp1.join();
   std::cout << "x: " << x << std::endl;
@@ -151,6 +151,6 @@ int main() {
   CASE_pushclosepush(); 
   CASE_popclosepop(); 
   CASE_JamLambda(); 
-  return 0
+  return 0;
 }
 

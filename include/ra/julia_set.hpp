@@ -7,6 +7,7 @@
 
 namespace ra {
   namespace fractal {
+
     template <class Real>//real can be float, double, or long double
     void compute_julia_set(
         const std::complex<Real>& bottom_left, 
@@ -16,15 +17,14 @@ namespace ra {
         boost::multi_array<int, 2>& a, 
         int num_threads
       ) {
-      
-      std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
 
-      const Real u0 = bottom_left.real(),
-            u1 = bottom_left.imag(),
-            v0 = top_right.real(),
-            v1 = top_right.imag(),
-      const int H = a.shape()[0],
-            W = a.shape()[1];
+      //std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+
+      const Real u0 = bottom_left.real(), 
+                 u1 = bottom_left.imag(), 
+                 v0 = top_right.real(),
+                 v1 = top_right.imag();
+      const int H = a.shape()[0], W = a.shape()[1];
 
       ra::concurrency::thread_pool tp(num_threads);
 
@@ -47,8 +47,8 @@ namespace ra {
 
       }
 
-      std::chrono::time_point<std::chrono::system_clock> end=std::system_clock::now();
-      std::chrono::duration<double> elapsed = end - start;
+      // std::chrono::time_point<std::chrono::system_clock> end=std::system_clock::now();
+      // std::chrono::duration<double> elapsed = end - start;
       //std::cout << "That took: " << elapsed.count() << "s, given " << m_threads << "threads" << std::endl;
 
     }

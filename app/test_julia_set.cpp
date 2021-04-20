@@ -21,7 +21,7 @@ void test_julia_set() {
   std::ofstream julia;
   julia.open("julia.pnm");
   julia << "P2 " << a.shape()[1] << " " << a.shape()[0] << " " << 255 << std::endl;
-  for (auto i=0; i < a.shape()]0]; ++i) {
+  for (auto i=0; i < a.shape()[0]; ++i) {
     for(auto j=0; j < a.shape()[1]; ++j){
       julia << a[i][j] << " ";
     }
