@@ -1,7 +1,7 @@
 # cpp_concurrency
 This repository contains software developed using C++'s concurrency features.
 
-#dependencies
+# dependencies
 Note that the Julia Set computation utilizes the Boost library (https://www.boost.org), and requires a version >= 1.72.0.
 Download information for this library is found here: https://www.boost.org/users/download/
 Installation information can be found in section 5 of the Boost docs: https://www.boost.org/doc/libs/1_61_0/more/getting_started/unix-variants.html#or-build-custom-binaries
